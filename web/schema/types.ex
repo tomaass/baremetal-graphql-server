@@ -8,4 +8,13 @@ defmodule BaremetalGraphqlServer.Schema.Types do
     field :term, :integer
     field :total_amount, :integer
   end
+
+  object :application_constrain do
+    field :id, :id
+    field :type, :string
+    field :min, :integer
+    field :max, :integer
+    field :default_value, :integer
+    field :step, :integer
+  end
 end

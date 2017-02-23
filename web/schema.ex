@@ -12,5 +12,9 @@ defmodule BaremetalGraphqlServer.Schema do
     #   arg :term
     #   resolve &BaremetalGraphqlServer.OfferResolver.find/2
     # end
+
+    field :application_constrains, list_of(:application_constrain) do
+      resolve &BaremetalGraphqlServer.ApplicationConstrainResolver.all/2
+    end
   end
 end

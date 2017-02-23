@@ -12,9 +12,23 @@
 
 alias BaremetalGraphqlServer.Repo
 alias BaremetalGraphqlServer.FirstLoanOffer
+alias BaremetalGraphqlServer.ApplicationConstrain
 
-foo = %FirstLoanOffer{amount: 100, term: 20, total_amount: 120}
-bar = %FirstLoanOffer{amount: 100, term: 20, total_amount: 120}
+Repo.insert %FirstLoanOffer{amount: 100, term: 20, total_amount: 120}
+Repo.insert %FirstLoanOffer{amount: 100, term: 20, total_amount: 120}
 
-Repo.insert! foo
-Repo.insert! bar
+Repo.insert %ApplicationConstrain{
+  type: "amount",
+  min: 10,
+  max: 100,
+  default_value: 50,
+  step: 10
+}
+
+Repo.insert %ApplicationConstrain{
+  type: "term",
+  min: 1,
+  max: 30,
+  default_value: 15,
+  step: 1
+}
